@@ -1,10 +1,20 @@
+import { Card, CardBody, Heading, Image } from "@chakra-ui/react"
+import { Game } from "../hooks/useGames"
 
 
-const GameCard = () => {
+interface Props{
+    game: Game
+    
+}
+
+const GameCard = ({ game }: Props)=> {
   return (
-    <div>
-      Jews
-    </div>
+    <Card borderRadius={10} overflow='hidden'>
+      <Image src={game.background_image}/>
+      <CardBody>
+        <Heading fontSize='1xl'>{game.name}</Heading>
+      </CardBody>
+    </Card>
   )
 }
 
