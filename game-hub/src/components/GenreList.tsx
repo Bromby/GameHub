@@ -2,11 +2,11 @@ import useGenres from "../hooks/useGenres"
 
 
 const GenreList = () => {
-    const ghook = useGenres();
+    const { data } = useGenres();
   return (
     
     <ul>
-        {ghook.genres.map((genre) => <li>{ genre.name }</li>)}
+        {data.map((genre) => <li>{ genre.name }</li>)}
     </ul>
   )
 }
