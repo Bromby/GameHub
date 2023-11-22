@@ -22,7 +22,7 @@ const skeletons = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
     <>
     <Text>{gameQuery.genre?.name + ' ' + gameQuery.platform?.name}</Text>
     {error && <Text>{error}</Text>}
-    <SimpleGrid columns={{sm: 1, md:3, lg:3, xl: 4}} spacing={3} padding='15px'>
+    <SimpleGrid columns={{sm: 1, md:3, lg:3, xl: 4}} spacing={6} padding='15px'>
       {isLoading && skeletons.map(skeleton =>( 
       <GameCardContainer  key={skeleton}>
         <GameCardSkeleton/>
