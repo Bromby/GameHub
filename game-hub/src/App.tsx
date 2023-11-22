@@ -13,7 +13,7 @@ import SortSelector from './components/SortSelector'
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
-
+  sort: string;
 }
 
 
@@ -64,7 +64,7 @@ function App() {
     <GridItem area='main'>
       <HStack spacing={5} paddingLeft={2} marginBottom={5}>
           <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...gameQuery, platform})} selectedPlatform={gameQuery.platform}></PlatformSelector>
-          <SortSelector></SortSelector>
+          <SortSelector onSelectSortOrder={(sort) => setGameQuery({...gameQuery, sort})} sortOrder={gameQuery.sort}></SortSelector>
       </HStack>
 
       <GameGrid gameQuery={gameQuery}></GameGrid>
