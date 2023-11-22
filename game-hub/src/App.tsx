@@ -8,20 +8,30 @@ import { Genre } from './hooks/useGenres'
 import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './hooks/useGames'
 
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+
+}
+
+
 function App() {
 
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
-  const genreClick = (genre: Genre)  =>{
-      setSelectedGenre(genre);
-      console.log(genre.name);
-  }
+  // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  // const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 
-  const platformClick = (platform: Platform) =>{
-    setSelectedPlatform(platform);
-    console.log(platform.name);
-  }
+  // const genreClick = (genre: Genre)  =>{
+  //     setSelectedGenre(genre);
+  //     console.log(genre.name);
+  // }
+
+  // const platformClick = (platform: Platform) =>{
+  //   setSelectedPlatform(platform);
+  //   console.log(platform.name);
+  // }
 
   // const onSelectGenres = (genre: Genre) =>{
   //     setSelectedGenre(genre);
@@ -45,14 +55,14 @@ function App() {
     </GridItem>
     <Show above="lg">
     <GridItem area='aside' paddingX={5}>
-      <GenreList onSelectGenre={(genre) => genreClick(genre)} selectedGenre={selectedGenre}></GenreList>
+      <GenreList onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})} selectedGenre={gameQuery.genre}></GenreList>
 
     </GridItem>
     </Show>
    
     <GridItem area='main'>
-      <PlatformSelector onSelectPlatform={(platform) => platformClick(platform)} selectedPlatform={selectedPlatform}></PlatformSelector>
-      <GameGrid genre={selectedGenre} platform={selectedPlatform}></GameGrid>
+      <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...gameQuery, platform})} selectedPlatform={gameQuery.platform}></PlatformSelector>
+      <GameGrid gameQuery={gameQuery}></GameGrid>
     </GridItem>
   </Grid>
 
