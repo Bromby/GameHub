@@ -9,6 +9,7 @@ import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './hooks/useGames'
 import SortSelector from './components/SortSelector'
 import GameHeading from './components/GameHeading'
+import StoreList from './components/StoreList'
 
 
 export interface GameQuery {
@@ -58,6 +59,7 @@ function App() {
     </GridItem>
     <Show above="lg">
     <GridItem area='aside' paddingX={5}>
+      <StoreList></StoreList>
       <GenreList onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})} selectedGenre={gameQuery.genre}></GenreList>
 
     </GridItem>
