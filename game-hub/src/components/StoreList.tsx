@@ -10,7 +10,7 @@ const StoreList = () => {
     console.log(data);
   return (
     <div>
-        yay
+        yay onSelectSortOrder
     </div>
   )
 }
